@@ -151,9 +151,3 @@ function loop() {
 
 // スタート
 loop();
-    requestAnimationFrame(loop);
-  }
-}
-
-// スタート
-loop();
