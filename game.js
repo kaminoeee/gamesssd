@@ -93,7 +93,7 @@ function loop() {
     if (cpu.x <= 0 || cpu.x + cpu.w >= canvas.width) cpu.dir *= -1;
     if (cpu.cooldown === 0) {
       cpu.bullets.push({ x: cpu.x + cpu.w / 2 - 2, y: cpu.y + cpu.h, w: 4, h: 12, speed: 6 });
-      cpu.cooldown = Math.floor(Math.random() * 60) + 30; // ランダム発射
+      cpu.cooldown = Math.floor(Math.random() * 20) + 10; // ここを変更！（元: 60, 30 → 20, 10）
     }
     if (cpu.cooldown > 0) cpu.cooldown--;
   }
@@ -145,6 +145,12 @@ function loop() {
     ctx.font = "18px sans-serif";
     ctx.fillText("F5でリトライ", canvas.width / 2, canvas.height / 2 + 40);
   } else {
+    requestAnimationFrame(loop);
+  }
+}
+
+// スタート
+loop();
     requestAnimationFrame(loop);
   }
 }
